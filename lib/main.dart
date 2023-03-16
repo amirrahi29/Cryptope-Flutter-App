@@ -1,8 +1,11 @@
-import 'package:cryptope/Cryptope/presentation/pages/MyHomePage.dart';
+import 'package:cryptope/Cryptope/presentation/pages/IntroOnBoardingPage.dart';
+import 'package:cryptope/CustomClasses/routes/OnPageGenerateRoute.dart';
 import 'package:flutter/material.dart';
+import 'CustomClasses/AllTitles.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,11 +13,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Cryptope',
+      debugShowCheckedModeBanner: false,
+      title: AllTitles.appTitle,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      onGenerateRoute: OnPageGenerateRoute.route,
+      initialRoute: '/',
+      routes: {
+        "/":(context){
+          return IntroOnBoardingPage();
+        }
+      },
     );
   }
 }
