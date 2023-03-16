@@ -1,4 +1,4 @@
-class PageConstants{
+class PageConstants {
   static const String dashboardPage = 'dashboardPages';
   static const String introOnBoardingPage = 'introOnBoardingPage';
 

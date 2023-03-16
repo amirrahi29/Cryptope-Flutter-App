@@ -11,17 +11,13 @@ class IntroOnBoardingPage extends StatefulWidget {
 class _IntroOnBoardingPageState extends State<IntroOnBoardingPage> {
   @override
   Widget build(BuildContext context) {
-    return GlobalMainWidget.globalMainWidget(
-        SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-
-              Text("Intro Onboarding Page")
-
-            ],
-          ),
-        )
-    );
+    return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text("Intro Onboarding Page")
+        ],
+      ),
+    ));
   }
 }

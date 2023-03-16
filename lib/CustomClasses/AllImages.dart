@@ -1,3 +1,3 @@
-class AllImages{
+class AllImages {
   static String logo = "";
 }

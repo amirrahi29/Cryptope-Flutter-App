@@ -3,13 +3,14 @@ import 'package:cryptope/CustomClasses/routes/OnPageGenerateRoute.dart';
 import 'package:flutter/material.dart';
 import 'CustomClasses/AllTitles.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: OnPageGenerateRoute.route,
       initialRoute: '/',
       routes: {
-        "/":(context){
+        "/": (context) {
           return IntroOnBoardingPage();
         }
       },

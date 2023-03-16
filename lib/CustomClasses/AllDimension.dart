@@ -1,4 +1,4 @@
-class AllDimension{
+class AllDimension {
   static double two = 2.0;
   static double four = 4.0;
   static double six = 6.0;

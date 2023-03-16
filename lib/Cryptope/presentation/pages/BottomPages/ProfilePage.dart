@@ -11,17 +11,13 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return GlobalMainWidget.globalMainWidget(
-        SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-
-              Text("Profile Page")
-
-            ],
-          ),
-        )
-    );
+    return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text("Profile Page")
+        ],
+      ),
+    ));
   }
 }

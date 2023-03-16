@@ -11,17 +11,13 @@ class TokenPage extends StatefulWidget {
 class _TokenPageState extends State<TokenPage> {
   @override
   Widget build(BuildContext context) {
-    return GlobalMainWidget.globalMainWidget(
-        SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-
-              Text("Token Page")
-
-            ],
-          ),
-        )
-    );
+    return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text("Token Page")
+        ],
+      ),
+    ));
   }
 }

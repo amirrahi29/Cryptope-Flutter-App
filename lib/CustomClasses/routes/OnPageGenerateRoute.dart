@@ -6,7 +6,6 @@ import 'PageConstants.dart';
 
 class OnPageGenerateRoute {
   static Route<dynamic> route(RouteSettings settings) {
-
     var args = settings.arguments;
 
     switch (settings.name) {

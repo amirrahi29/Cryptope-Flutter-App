@@ -11,17 +11,13 @@ class ContentPage extends StatefulWidget {
 class _ContentPageState extends State<ContentPage> {
   @override
   Widget build(BuildContext context) {
-    return GlobalMainWidget.globalMainWidget(
-        SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-
-              Text("Content Page")
-
-            ],
-          ),
-        )
-    );
+    return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text("Content Page")
+        ],
+      ),
+    ));
   }
 }

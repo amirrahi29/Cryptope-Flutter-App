@@ -10,7 +10,6 @@ class LeftDrawer extends StatefulWidget {
 }
 
 class _LeftDrawerState extends State<LeftDrawer> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,9 +20,7 @@ class _LeftDrawerState extends State<LeftDrawer> {
           padding: EdgeInsets.all(AllDimension.eight),
           child: ListView(
             children: <Widget>[
-
               Text("Helooooooo")
-
             ],
           ),
         ));

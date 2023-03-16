@@ -11,17 +11,13 @@ class ErrorPage extends StatefulWidget {
 class _ErrorPageState extends State<ErrorPage> {
   @override
   Widget build(BuildContext context) {
-    return GlobalMainWidget.globalMainWidget(
-        SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-
-              Text("Error / Internet Issue Page")
-
-            ],
-          ),
-        )
-    );
+    return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text("Error / Internet Issue Page")
+        ],
+      ),
+    ));
   }
 }

@@ -1,3 +1,3 @@
-class AllTitles{
+class AllTitles {
   static String appTitle = "Cryptope";
 }
