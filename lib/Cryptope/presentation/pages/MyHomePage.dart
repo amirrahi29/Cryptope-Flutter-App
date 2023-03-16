@@ -13,7 +13,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
         child: Scaffold(
           body: Center(
-            child: Text("Helooooooooooooooooo"),
+            child: Text("Heloooooooooodvgdiuvgduivgdfuiooooooo"),
           ),
         )
     );
