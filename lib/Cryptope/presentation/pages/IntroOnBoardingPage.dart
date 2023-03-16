@@ -1,4 +1,5 @@
 import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
+import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,6 @@ class IntroOnBoardingPage extends StatefulWidget {
 }
 
 class _IntroOnBoardingPageState extends State<IntroOnBoardingPage> {
-
   final List<String> imgList = [
     'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
     'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
@@ -23,27 +23,37 @@ class _IntroOnBoardingPageState extends State<IntroOnBoardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    return GlobalMainWidget.globalMainWidget(
-        SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-
-                Container(
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(AllImages.background),
-                      fit: BoxFit.fill
-                    )
-                  ),
-                  child: GlobalMainWidget.MyIntroWidget(),
-                )
-
-              ],
-            ),
-        )
-    );
+    return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            height: MediaQuery.of(context).size.height / 1.08,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(AllImages.background), fit: BoxFit.fill)),
+            child: GlobalMainWidget.MyIntroWidget(),
+          ),
+          SizedBox(height: AllDimension.sixteen),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Already have an account?",
+                  style: TextStyle(
+                      color: AllColors.blackColor,
+                      fontSize: AllDimension.sixteen)),
+              SizedBox(width: AllDimension.eight),
+              Text(
+                "Login",
+                style: TextStyle(
+                    color: AllColors.mainThemeColor,
+                    fontSize: AllDimension.sixteen),
+              ),
+            ],
+          )
+        ],
+      ),
+    ));
   }
 }

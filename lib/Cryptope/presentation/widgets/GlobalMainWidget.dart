@@ -22,7 +22,8 @@ class GlobalMainWidget {
         width: 300.0,
         child: Carousel(
           dotSize: AllDimension.eight,
-          dotIncreaseSize: AllDimension.zero,
+          dotIncreaseSize: AllDimension.two,
+          dotIncreasedColor: AllColors.yellowColor,
           autoplay: true,
           animationDuration: Duration(seconds: 1),
           dotBgColor: AllColors.transparent,
