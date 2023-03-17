@@ -22,7 +22,7 @@ class _SignUpPageState extends State<SignUpPage> {
         clipBehavior: Clip.none,
         children: <Widget>[
 
-          LoginSignUpWidgets.backgroundWidget(context),
+          GlobalMainWidget.backgroundWidget(context),
 
           Positioned(
             bottom: 0,

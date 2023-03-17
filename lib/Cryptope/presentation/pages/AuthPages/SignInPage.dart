@@ -2,7 +2,6 @@ import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/Cryptope/presentation/widgets/LoginSignUpWidgets.dart';
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
-import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
 import 'package:cryptope/CustomClasses/CutomLists.dart';
 import 'package:cryptope/CustomClasses/routes/PageConstants.dart';
@@ -23,7 +22,7 @@ class _SignInPageState extends State<SignInPage> {
         clipBehavior: Clip.none,
         children: <Widget>[
 
-          LoginSignUpWidgets.backgroundWidget(context),
+          GlobalMainWidget.backgroundWidget(context),
 
           Positioned(
             bottom: 0,

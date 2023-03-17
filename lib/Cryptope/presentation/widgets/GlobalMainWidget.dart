@@ -6,6 +6,7 @@ import 'package:lecle_flutter_carousel_pro/lecle_flutter_carousel_pro.dart';
 import 'LeftDrawer.dart';
 
 class GlobalMainWidget {
+
   static Widget globalMainWidget(Widget myWidget,
       {BottomNavigationBar? bottomNavigationBar}) {
     return SafeArea(
@@ -13,6 +14,32 @@ class GlobalMainWidget {
           drawer: LeftDrawer(),
           body: myWidget,
           bottomNavigationBar: bottomNavigationBar),
+    );
+  }
+
+  static Widget TabTitles(String title){
+    return Container(
+        alignment: Alignment.center,
+        margin: EdgeInsets.only(top: AllDimension.thirtyTwo,bottom: AllDimension.eight),
+        child: Text(title,
+          style: TextStyle(fontSize: AllDimension.twentyTwo,
+              color: AllColors.whiteColor,fontWeight: FontWeight.bold),)
+    );
+  }
+
+  static Widget backgroundWidget(BuildContext context){
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(AllImages.background), fit: BoxFit.fill)),
+      child: Container(
+        height: AllDimension.oneHundred,
+        width: AllDimension.oneHundred,
+        decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage(AllImages.logo))),
+      ),
     );
   }
 
