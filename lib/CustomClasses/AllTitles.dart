@@ -11,5 +11,7 @@ class AllTitles {
   static String createYourAccount = "Let’s Create Your Account";
   static String upcomingEvents = "Upcoming Events";
   static String gits = "Gifts";
+  static String news = "News";
+  static String coins = "Coins";
   static String viewAll = "View All";
 }

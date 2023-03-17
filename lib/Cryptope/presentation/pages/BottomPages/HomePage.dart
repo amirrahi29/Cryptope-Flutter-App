@@ -50,7 +50,9 @@ class _HomePageState extends State<HomePage> {
                             return HomePageWidget.MyCardListItem(context);
                           }
                       ),
-                    )
+                    ),
+
+                    SizedBox(height: AllDimension.eightyFour),
 
                   ],
                 ),

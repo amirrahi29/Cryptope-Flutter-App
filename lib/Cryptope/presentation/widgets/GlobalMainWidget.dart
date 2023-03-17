@@ -58,19 +58,21 @@ class GlobalMainWidget {
       decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage(AllImages.background), fit: BoxFit.fill)),
-      child: Container(
-        height: AllDimension.oneHundred,
-        width: AllDimension.oneHundred,
-        decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage(AllImages.logo))),
+      child: Center(
+        child: Container(
+          height: AllDimension.twoHundred,
+          width: AllDimension.twoHundred,
+          decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage(AllImages.logo))),
+        ),
       ),
     );
   }
 
   static Widget MyIntroWidget() {
-    return SizedBox(
-        height: 150.0,
-        width: 300.0,
+    return Container(
+        height: AllDimension.oneHundred,
+        width: AllDimension.threeHundred,
         child: Carousel(
           dotSize: AllDimension.eight,
           dotIncreaseSize: AllDimension.two,
@@ -81,15 +83,18 @@ class GlobalMainWidget {
           images: [
             // NetworkImage('https://cdn-images-1.medium.com/max/2000/1*GqdzzfB_BHorv7V2NV7Jgg.jpeg'),
             for(int i = 0; i<3; i++)
-            Container(
-              height: AllDimension.oneHundred,
-              width: AllDimension.oneHundred,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(AllImages.logo)
-                )
+            Center(
+              child: Container(
+                height: AllDimension.twoHundred,
+                width: AllDimension.twoHundred,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(AllImages.logo),
+                    )
+                ),
               ),
             )
+
           ],
         )
     );

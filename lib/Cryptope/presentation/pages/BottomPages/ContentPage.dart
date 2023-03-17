@@ -1,5 +1,7 @@
+import 'package:cryptope/Cryptope/presentation/widgets/ContentPageWidget.dart';
 import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
+import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
 import 'package:flutter/material.dart';
 
@@ -39,11 +41,52 @@ class _ContentPageState extends State<ContentPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
 
+                        //Gift
                         GlobalMainWidget.pageHeader(AllTitles.gits,AllTitles.viewAll),
+                        SizedBox(height: AllDimension.twelve),
+                        SizedBox(
+                          height: AllDimension.twoTen,
+                          child: ListView.builder(
+                              itemCount: 3,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context,index){
+                                return ContentPageWidget.ProductItems(AllDimension.twoFifty,AllDimension.oneSixty);
+                              }
+                          ),
+                        ),
 
-                        SizedBox(height: AllDimension.sixteen),
+                        //News
+                        SizedBox(height: AllDimension.twelve),
+                        GlobalMainWidget.pageHeader(AllTitles.news,AllTitles.viewAll),
+                        SizedBox(height: AllDimension.twelve),
+                        SizedBox(
+                          height: AllDimension.twoThirty,
+                          child: ListView.builder(
+                              itemCount: 3,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context,index){
+                                return ContentPageWidget.ProductItems(AllDimension.threeHundred,AllDimension.oneEighty);
+                              }
+                          ),
+                        ),
 
 
+                        //coins
+                        SizedBox(height: AllDimension.twelve),
+                        GlobalMainWidget.pageHeader(AllTitles.coins,AllTitles.viewAll),
+                        SizedBox(height: AllDimension.twelve),
+                        SizedBox(
+                          height: AllDimension.twoTen,
+                          child: ListView.builder(
+                              itemCount: 3,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context,index){
+                                return ContentPageWidget.ProductItems(AllDimension.twoTen,AllDimension.oneSixty);
+                              }
+                          ),
+                        ),
+
+                        SizedBox(height: AllDimension.eightyFour),
 
                       ],
                     ),

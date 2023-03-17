@@ -25,7 +25,8 @@ class _IntroOnBoardingPageState extends State<IntroOnBoardingPage> {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(AllImages.background), fit: BoxFit.fill)),
+                    image: AssetImage(AllImages.background),
+                    fit: BoxFit.fill)),
             child: GlobalMainWidget.MyIntroWidget(),
           ),
           SizedBox(height: AllDimension.sixteen),

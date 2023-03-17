@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) {
-          return ContentPage();
+          return IntroOnBoardingPage();
         }
       },
     );
