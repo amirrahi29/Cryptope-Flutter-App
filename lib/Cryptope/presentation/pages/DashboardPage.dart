@@ -1,4 +1,6 @@
 import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
+import 'package:cryptope/CustomClasses/AllColors.dart';
+import 'package:cryptope/CustomClasses/BottomTabItems.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -9,15 +11,25 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  //bottom tab items class
+  final _bottomTabItems = BottomTabItems();
+
   @override
   Widget build(BuildContext context) {
-    return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text("Dashboard Page")
-        ],
-      ),
-    ));
+    return GlobalMainWidget.globalMainWidget(
+        _bottomTabItems.allBottomPages[_bottomTabItems.visit],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _bottomTabItems.visit,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: AllColors.mainThemeColor,
+          items: _bottomTabItems.allTabs(
+              _bottomTabItems.visit, _bottomTabItems.selectedTab),
+          onTap: (int index) {
+            setState(() {
+              _bottomTabItems.selectedTab = index;
+              _bottomTabItems.visit = index;
+            });
+          },
+        ));
   }
 }

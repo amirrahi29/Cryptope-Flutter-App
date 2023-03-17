@@ -2,6 +2,7 @@ import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
+import 'package:cryptope/CustomClasses/AllTitles.dart';
 import 'package:cryptope/CustomClasses/routes/PageConstants.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ class _IntroOnBoardingPageState extends State<IntroOnBoardingPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("Already have an account?",
+              Text(AllTitles.alreadyHaveAnAccount,
                   style: TextStyle(
                       color: AllColors.blackColor,
                       fontSize: AllDimension.sixteen)),
@@ -41,7 +42,7 @@ class _IntroOnBoardingPageState extends State<IntroOnBoardingPage> {
                   Navigator.pushNamed(context, PageConstants.signInPage);
                 },
                 child: Text(
-                  "Login",
+                  AllTitles.login,
                   style: TextStyle(
                       color: AllColors.mainThemeColor,
                       fontSize: AllDimension.sixteen),

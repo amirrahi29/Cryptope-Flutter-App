@@ -11,7 +11,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
+    return GlobalMainWidget.globalMainWidget(
+        SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
