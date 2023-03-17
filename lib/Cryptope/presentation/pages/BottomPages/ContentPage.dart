@@ -39,7 +39,11 @@ class _ContentPageState extends State<ContentPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
 
-                        GlobalMainWidget.pageHeader(AllTitles.gits,AllTitles.viewAll)
+                        GlobalMainWidget.pageHeader(AllTitles.gits,AllTitles.viewAll),
+
+                        SizedBox(height: AllDimension.sixteen),
+
+
 
                       ],
                     ),

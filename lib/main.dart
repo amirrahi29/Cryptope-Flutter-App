@@ -1,3 +1,4 @@
+import 'package:cryptope/Cryptope/presentation/pages/BottomPages/ContentPage.dart';
 import 'package:cryptope/Cryptope/presentation/pages/IntroOnBoardingPage.dart';
 import 'package:cryptope/CustomClasses/routes/OnPageGenerateRoute.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) {
-          return IntroOnBoardingPage();
+          return ContentPage();
         }
       },
     );
