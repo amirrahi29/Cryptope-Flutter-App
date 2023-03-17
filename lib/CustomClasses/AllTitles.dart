@@ -14,4 +14,6 @@ class AllTitles {
   static String news = "News";
   static String coins = "Coins";
   static String viewAll = "View All";
+  static String connectedSocialMedia = "Connected Social Media";
+  static String walletAddress = "Wallet Address";
 }

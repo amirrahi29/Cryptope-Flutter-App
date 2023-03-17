@@ -5,6 +5,7 @@ class AllImages {
   static String coinImage = "assets/images/coin_image.png";
   static String catImage = "assets/images/cat_image.png";
   static String download = "assets/images/download.png";
+  static String user = "assets/images/user.png";
 
   //social icons
   static String apple = "assets/images/apple.png";
