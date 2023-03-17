@@ -8,6 +8,7 @@ class AllImages {
   static String user = "assets/images/user.png";
   static String calender = "assets/images/calender.png";
   static String details = "assets/images/details.png";
+  static String bell = "assets/images/bell.png";
 
   //social icons
   static String apple = "assets/images/apple.png";
