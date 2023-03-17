@@ -2,6 +2,7 @@ class AllImages {
   static String logo = "assets/images/logo.png";
   static String logoText = "assets/images/logo_text.png";
   static String background = "assets/images/background.png";
+  static String coinImage = "assets/images/coin_image.png";
 
   //social icons
   static String apple = "assets/images/apple.png";

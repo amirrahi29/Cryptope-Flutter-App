@@ -9,4 +9,7 @@ class AllTitles {
   static String signin = "Sign in";
   static String welcomeCryptope = "Welcome to CRYPTOPE";
   static String createYourAccount = "Let’s Create Your Account";
+  static String upcomingEvents = "Upcoming Events";
+  static String gits = "Gifts";
+  static String viewAll = "View All";
 }

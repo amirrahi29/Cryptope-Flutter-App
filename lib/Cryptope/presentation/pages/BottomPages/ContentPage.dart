@@ -1,5 +1,6 @@
 import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
+import 'package:cryptope/CustomClasses/AllTitles.dart';
 import 'package:flutter/material.dart';
 
 class ContentPage extends StatefulWidget {
@@ -38,7 +39,7 @@ class _ContentPageState extends State<ContentPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
 
-                        Text("content"),
+                        GlobalMainWidget.pageHeader(AllTitles.gits,AllTitles.viewAll)
 
                       ],
                     ),
