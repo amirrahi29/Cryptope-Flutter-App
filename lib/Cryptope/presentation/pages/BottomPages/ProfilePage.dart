@@ -64,7 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Card(
                           elevation: AllDimension.eight,
                           shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.white70, width: 1),
+                            side: BorderSide(width: AllDimension.one,color: AllColors.whiteColor),
                             borderRadius: BorderRadius.circular(AllDimension.twelve),
                           ),
                           child: Container(
@@ -118,7 +118,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Card(
                           elevation: AllDimension.eight,
                           shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.white70, width: 1),
+                            side: BorderSide(width: AllDimension.one,color: AllColors.whiteColor),
                             borderRadius: BorderRadius.circular(AllDimension.twelve),
                           ),
                           child: Container(
@@ -145,7 +145,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Card(
                           elevation: AllDimension.eight,
                           shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.white70, width: 1),
+                            side: BorderSide(width: AllDimension.one,color: AllColors.whiteColor),
                             borderRadius: BorderRadius.circular(AllDimension.twelve),
                           ),
                           child: Container(

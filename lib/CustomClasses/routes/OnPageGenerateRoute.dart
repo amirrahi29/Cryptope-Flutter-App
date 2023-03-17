@@ -2,6 +2,7 @@ import 'package:cryptope/Cryptope/presentation/pages/AuthPages/SignInPage.dart';
 import 'package:cryptope/Cryptope/presentation/pages/AuthPages/SignUpPage.dart';
 import 'package:cryptope/Cryptope/presentation/pages/DashboardPage.dart';
 import 'package:cryptope/Cryptope/presentation/pages/ErrorPage.dart';
+import 'package:cryptope/Cryptope/presentation/pages/EventDetailsPage.dart';
 import 'package:cryptope/Cryptope/presentation/pages/IntroOnBoardingPage.dart';
 import 'package:flutter/material.dart';
 import 'PageConstants.dart';
@@ -26,6 +27,10 @@ class OnPageGenerateRoute {
       case PageConstants.signUpPage:
         {
           return materialPageRoute(widget: SignUpPage());
+        }
+      case PageConstants.eventDetailPage:
+        {
+          return materialPageRoute(widget: EventDetailsPage());
         }
       default:
         {

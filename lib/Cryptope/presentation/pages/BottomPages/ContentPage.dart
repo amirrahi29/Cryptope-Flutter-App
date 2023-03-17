@@ -1,7 +1,6 @@
 import 'package:cryptope/Cryptope/presentation/widgets/ContentPageWidget.dart';
 import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
-import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
 import 'package:flutter/material.dart';
 

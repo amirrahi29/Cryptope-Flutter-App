@@ -15,6 +15,7 @@ class AllDimension {
   static double twentyFour = 24.0;
   static double twentySix = 26.0;
   static double twentyEight = 28.0;
+  static double thirty = 30.0;
   static double thirtyTwo = 32.0;
   static double thirtyThree = 33.0;
   static double thirtysix = 36.0;

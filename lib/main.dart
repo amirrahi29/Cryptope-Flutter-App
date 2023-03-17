@@ -1,5 +1,6 @@
 import 'package:cryptope/Cryptope/presentation/pages/BottomPages/ContentPage.dart';
 import 'package:cryptope/Cryptope/presentation/pages/BottomPages/ProfilePage.dart';
+import 'package:cryptope/Cryptope/presentation/pages/EventDetailsPage.dart';
 import 'package:cryptope/Cryptope/presentation/pages/IntroOnBoardingPage.dart';
 import 'package:cryptope/CustomClasses/routes/OnPageGenerateRoute.dart';
 import 'package:flutter/material.dart';
