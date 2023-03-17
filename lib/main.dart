@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) {
-          return EventDetailsPage();
+          return IntroOnBoardingPage();
         }
       },
     );
