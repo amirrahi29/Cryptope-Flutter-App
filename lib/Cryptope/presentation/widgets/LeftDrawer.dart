@@ -1,4 +1,3 @@
-import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:flutter/material.dart';
 
