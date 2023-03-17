@@ -4,6 +4,7 @@ import 'package:cryptope/Cryptope/presentation/pages/DashboardPage.dart';
 import 'package:cryptope/Cryptope/presentation/pages/ErrorPage.dart';
 import 'package:cryptope/Cryptope/presentation/pages/EventDetailsPage.dart';
 import 'package:cryptope/Cryptope/presentation/pages/IntroOnBoardingPage.dart';
+import 'package:cryptope/Cryptope/presentation/pages/TokenDetailsPage.dart';
 import 'package:flutter/material.dart';
 import 'PageConstants.dart';
 
@@ -31,6 +32,10 @@ class OnPageGenerateRoute {
       case PageConstants.eventDetailPage:
         {
           return materialPageRoute(widget: EventDetailsPage());
+        }
+      case PageConstants.tokenDetailPage:
+        {
+          return materialPageRoute(widget: TokenDetailsPage());
         }
       default:
         {

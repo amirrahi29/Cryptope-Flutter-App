@@ -17,4 +17,5 @@ class AllTitles {
   static String connectedSocialMedia = "Connected Social Media";
   static String walletAddress = "Wallet Address";
   static String descriptions = "Descriptions";
+  static String detailsAboutProject = "Details about project";
 }

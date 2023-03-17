@@ -2,6 +2,7 @@ import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
+import 'package:cryptope/CustomClasses/routes/PageConstants.dart';
 import 'package:flutter/material.dart';
 
 class TokenPage extends StatefulWidget {
@@ -39,86 +40,91 @@ class _TokenPageState extends State<TokenPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
 
-                        Card(
-                          elevation: AllDimension.eight,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(width: AllDimension.one,color: AllColors.whiteColor),
-                            borderRadius: BorderRadius.circular(AllDimension.sixteen),
-                          ),
-                          child: Container(
-                            margin: EdgeInsets.all(AllDimension.eight),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
+                        InkWell(
+                          onTap: (){
+                            Navigator.pushNamed(context, PageConstants.tokenDetailPage);
+                          },
+                          child: Card(
+                            elevation: AllDimension.eight,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(width: AllDimension.one,color: AllColors.whiteColor),
+                              borderRadius: BorderRadius.circular(AllDimension.sixteen),
+                            ),
+                            child: Container(
+                              margin: EdgeInsets.all(AllDimension.eight),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
 
-                                Container(
-                                  height: AllDimension.oneThirty,
-                                  width: MediaQuery.of(context).size.width,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(AllImages.coinImage),
-                                          fit: BoxFit.cover
-                                      ),
-                                      borderRadius: BorderRadius.all(Radius.circular(AllDimension.sixteen))
-                                  ),
-                                ),
-
-                                SizedBox(height: AllDimension.eight),
-
-                                Row(
-                                  children: <Widget>[
-
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: <Widget>[
-
-                                          Text("Helix pro",
-                                              style: TextStyle(fontSize: AllDimension.sixteen,
-                                                  color: AllColors.blackColor,
-                                                  fontWeight: FontWeight.w700)),
-
-                                          SizedBox(
-                                            height: AllDimension.fourty,
-                                            child: ListView.builder(
-                                                itemCount: 3,
-                                                scrollDirection: Axis.horizontal,
-                                                itemBuilder: (context,index){
-                                                  return Container(
-                                                      padding: EdgeInsets.only(
-                                                        left: AllDimension.sixteen,
-                                                        right: AllDimension.sixteen,
-                                                        top: AllDimension.six,
-                                                        bottom: AllDimension.six,
-                                                      ),
-                                                      alignment: Alignment.center,
-                                                      margin: EdgeInsets.all(AllDimension.four),
-                                                      decoration:BoxDecoration(
-                                                          color: AllColors.mainThemeColor.withOpacity(0.2),
-                                                          borderRadius: BorderRadius.circular(AllDimension.sixteen)
-                                                      ),
-                                                      child: Text("Party",
-                                                        style: TextStyle(color: AllColors.blackColor,
-                                                            fontSize: AllDimension.twelve,),)
-                                                  );
-                                                }
-                                            ),
-                                          )
-
-                                        ],
-                                      ),
+                                  Container(
+                                    height: AllDimension.oneThirty,
+                                    width: MediaQuery.of(context).size.width,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(AllImages.coinImage),
+                                            fit: BoxFit.cover
+                                        ),
+                                        borderRadius: BorderRadius.all(Radius.circular(AllDimension.sixteen))
                                     ),
+                                  ),
 
-                                    Icon(Icons.keyboard_arrow_right_outlined,size: AllDimension.thirtyTwo,
-                                    color: AllColors.officialGreyColor)
+                                  SizedBox(height: AllDimension.eight),
+
+                                  Row(
+                                    children: <Widget>[
+
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: <Widget>[
+
+                                            Text("Helix pro",
+                                                style: TextStyle(fontSize: AllDimension.sixteen,
+                                                    color: AllColors.blackColor,
+                                                    fontWeight: FontWeight.w700)),
+
+                                            SizedBox(
+                                              height: AllDimension.fourty,
+                                              child: ListView.builder(
+                                                  itemCount: 3,
+                                                  scrollDirection: Axis.horizontal,
+                                                  itemBuilder: (context,index){
+                                                    return Container(
+                                                        padding: EdgeInsets.only(
+                                                          left: AllDimension.sixteen,
+                                                          right: AllDimension.sixteen,
+                                                          top: AllDimension.six,
+                                                          bottom: AllDimension.six,
+                                                        ),
+                                                        alignment: Alignment.center,
+                                                        margin: EdgeInsets.all(AllDimension.four),
+                                                        decoration:BoxDecoration(
+                                                            color: AllColors.mainThemeColor.withOpacity(0.2),
+                                                            borderRadius: BorderRadius.circular(AllDimension.sixteen)
+                                                        ),
+                                                        child: Text("Party",
+                                                          style: TextStyle(color: AllColors.blackColor,
+                                                              fontSize: AllDimension.twelve,),)
+                                                    );
+                                                  }
+                                              ),
+                                            )
+
+                                          ],
+                                        ),
+                                      ),
+
+                                      Icon(Icons.keyboard_arrow_right_outlined,size: AllDimension.thirtyTwo,
+                                      color: AllColors.officialGreyColor)
 
 
 
-                                  ],
-                                )
+                                    ],
+                                  )
 
 
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         )
