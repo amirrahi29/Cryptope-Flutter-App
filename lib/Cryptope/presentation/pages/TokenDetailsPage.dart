@@ -4,6 +4,7 @@ import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
 import 'package:flutter/material.dart';
+import 'package:lecle_flutter_carousel_pro/lecle_flutter_carousel_pro.dart';
 
 class TokenDetailsPage extends StatefulWidget {
   const TokenDetailsPage({Key? key}) : super(key: key);
@@ -24,17 +25,40 @@ class _TokenDetailsState extends State<TokenDetailsPage> {
               Stack(
                 clipBehavior: Clip.none,
                 children: <Widget>[
+                  // Container(
+                  //   height: AllDimension.threeFifty,
+                  //   decoration: BoxDecoration(
+                  //       image: DecorationImage(
+                  //           image: AssetImage(AllImages.details),
+                  //           fit: BoxFit.fill),
+                  //       borderRadius: BorderRadius.only(
+                  //         bottomLeft: Radius.circular(AllDimension.twentyFour),
+                  //         bottomRight: Radius.circular(AllDimension.twentyFour),
+                  //       )),
+                  // ),
+
                   Container(
-                    height: AllDimension.threeFifty,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(AllImages.details),
-                            fit: BoxFit.fill),
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(AllDimension.twentyFour),
-                          bottomRight: Radius.circular(AllDimension.twentyFour),
-                        )),
-                  ),
+                      height: AllDimension.threeFifty,
+                      child: Carousel(
+                          dotSize: AllDimension.eight,
+                          dotIncreaseSize: AllDimension.two,
+                          dotIncreasedColor: AllColors.yellowColor,
+                          autoplay: true,
+                          animationDuration: Duration(seconds: 1),
+                          dotBgColor: AllColors.transparent,
+                          images: [
+                            // NetworkImage('https://cdn-images-1.medium.com/max/2000/1*GqdzzfB_BHorv7V2NV7Jgg.jpeg'),
+                            for (int i = 0; i < 3; i++)
+                              Center(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(AllImages.details),
+                                          fit: BoxFit.fill)),
+                                ),
+                              )
+                          ])),
+
                   Positioned(
                       left: AllDimension.eight,
                       top: AllDimension.twelve,
@@ -57,17 +81,6 @@ class _TokenDetailsState extends State<TokenDetailsPage> {
                         ),
                       ))
                 ],
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.only(
-                    top: AllDimension.sixteen, bottom: AllDimension.eight),
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                        color: AllColors.officialGreyColor.withOpacity(0.3)),
-                  ),
-                ),
               ),
               Container(
                 margin: EdgeInsets.all(AllDimension.eight),
