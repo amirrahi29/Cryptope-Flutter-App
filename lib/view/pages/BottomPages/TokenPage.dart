@@ -1,8 +1,8 @@
-import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/routes/PageConstants.dart';
+import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
 import 'package:flutter/material.dart';
 
 class TokenPage extends StatefulWidget {
@@ -29,7 +29,7 @@ class _TokenPageState extends State<TokenPage> {
                 child: Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.all(AllDimension.twenty),
+                  padding: EdgeInsets.all(AllDimension.eight),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(AllDimension.fourty),

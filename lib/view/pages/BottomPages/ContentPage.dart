@@ -1,8 +1,10 @@
-import 'package:cryptope/Cryptope/presentation/widgets/ContentPageWidget.dart';
-import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
+import 'package:cryptope/view/widgets/ContentPageWidget.dart';
+import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
+import 'package:cryptope/view_model/ContentViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ContentPage extends StatefulWidget {
   const ContentPage({Key? key}) : super(key: key);
@@ -12,11 +14,14 @@ class ContentPage extends StatefulWidget {
 }
 
 class _ContentPageState extends State<ContentPage> {
+
+  final contentViewModel = Get.put(ContentViewModel());
+
   @override
   Widget build(BuildContext context) {
     return GlobalMainWidget.globalMainWidget(
         SingleChildScrollView(
-          child: Stack(
+          child: Obx(()=>Stack(
             clipBehavior: Clip.none,
             children: <Widget>[
 
@@ -29,7 +34,7 @@ class _ContentPageState extends State<ContentPage> {
                 child: Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.all(AllDimension.twenty),
+                  padding: EdgeInsets.all(AllDimension.eight),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(AllDimension.fourty),
@@ -40,16 +45,20 @@ class _ContentPageState extends State<ContentPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
 
-                        //Gift
-                        GlobalMainWidget.pageHeader(AllTitles.gits,AllTitles.viewAll),
-                        SizedBox(height: AllDimension.twelve),
+                        SizedBox(height: AllDimension.sixteen),
+                        //Gif
+                        GlobalMainWidget.pageHeader(AllTitles.gifs,AllTitles.viewAll),
+                        SizedBox(height: AllDimension.eight),
                         SizedBox(
                           height: AllDimension.twoTen,
-                          child: ListView.builder(
-                              itemCount: 3,
+                          child: contentViewModel.gifList.isEmpty?
+                              Center(
+                                child: CircularProgressIndicator(),
+                              ): ListView.builder(
+                              itemCount: contentViewModel.gifList.length,
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (context,index){
-                                return ContentPageWidget.ProductItems(AllDimension.twoFifty,AllDimension.oneSixty);
+                                return ContentPageWidget.ProductItems(AllDimension.twoFifty,AllDimension.oneSixty,contentViewModel.gifList[index]);
                               }
                           ),
                         ),
@@ -57,14 +66,17 @@ class _ContentPageState extends State<ContentPage> {
                         //News
                         SizedBox(height: AllDimension.twelve),
                         GlobalMainWidget.pageHeader(AllTitles.news,AllTitles.viewAll),
-                        SizedBox(height: AllDimension.twelve),
+                        SizedBox(height: AllDimension.eight),
                         SizedBox(
                           height: AllDimension.twoThirty,
-                          child: ListView.builder(
-                              itemCount: 3,
+                          child:contentViewModel.newsList.isEmpty?
+                          Center(
+                            child: CircularProgressIndicator(),
+                          ):  ListView.builder(
+                              itemCount: contentViewModel.newsList.length,
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (context,index){
-                                return ContentPageWidget.ProductItems(AllDimension.threeHundred,AllDimension.oneEighty);
+                                return ContentPageWidget.ProductItems(AllDimension.threeHundred,AllDimension.oneEighty,contentViewModel.newsList[index]);
                               }
                           ),
                         ),
@@ -73,19 +85,22 @@ class _ContentPageState extends State<ContentPage> {
                         //coins
                         SizedBox(height: AllDimension.twelve),
                         GlobalMainWidget.pageHeader(AllTitles.coins,AllTitles.viewAll),
-                        SizedBox(height: AllDimension.twelve),
+                        SizedBox(height: AllDimension.eight),
                         SizedBox(
                           height: AllDimension.twoTen,
-                          child: ListView.builder(
-                              itemCount: 3,
+                          child: contentViewModel.coinsList.isEmpty?
+                          Center(
+                            child: CircularProgressIndicator(),
+                          ): ListView.builder(
+                              itemCount: contentViewModel.coinsList.length,
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (context,index){
-                                return ContentPageWidget.ProductItems(AllDimension.twoTen,AllDimension.oneSixty);
+                                return ContentPageWidget.ProductItems(AllDimension.twoTen,AllDimension.oneSixty,contentViewModel.coinsList[index]);
                               }
                           ),
                         ),
 
-                        SizedBox(height: AllDimension.eightyFour),
+                        SizedBox(height: AllDimension.oneFifty),
 
                       ],
                     ),
@@ -94,7 +109,7 @@ class _ContentPageState extends State<ContentPage> {
               ),
 
             ],
-          ),
+          )),
         ));
   }
 }

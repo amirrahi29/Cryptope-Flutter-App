@@ -1,10 +1,11 @@
-import 'package:cryptope/Cryptope/presentation/pages/AuthPages/SignInPage.dart';
-import 'package:cryptope/Cryptope/presentation/pages/AuthPages/SignUpPage.dart';
-import 'package:cryptope/Cryptope/presentation/pages/DashboardPage.dart';
-import 'package:cryptope/Cryptope/presentation/pages/ErrorPage.dart';
-import 'package:cryptope/Cryptope/presentation/pages/EventDetailsPage.dart';
-import 'package:cryptope/Cryptope/presentation/pages/IntroOnBoardingPage.dart';
-import 'package:cryptope/Cryptope/presentation/pages/TokenDetailsPage.dart';
+import 'package:cryptope/model/EventModel.dart';
+import 'package:cryptope/view/pages/AuthPages/SignInPage.dart';
+import 'package:cryptope/view/pages/AuthPages/SignUpPage.dart';
+import 'package:cryptope/view/pages/DashboardPage.dart';
+import 'package:cryptope/view/pages/ErrorPage.dart';
+import 'package:cryptope/view/pages/EventDetailsPage.dart';
+import 'package:cryptope/view/pages/IntroOnBoardingPage.dart';
+import 'package:cryptope/view/pages/TokenDetailsPage.dart';
 import 'package:flutter/material.dart';
 import 'PageConstants.dart';
 
@@ -31,7 +32,12 @@ class OnPageGenerateRoute {
         }
       case PageConstants.eventDetailPage:
         {
-          return materialPageRoute(widget: EventDetailsPage());
+          if(args is EventList)
+          {
+            return materialPageRoute(widget: EventDetailsPage(eventList: args));
+          }else{
+            return materialPageRoute(widget: ErrorPage());
+          }
         }
       case PageConstants.tokenDetailPage:
         {

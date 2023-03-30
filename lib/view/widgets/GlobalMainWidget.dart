@@ -1,19 +1,27 @@
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
+import 'package:cryptope/view_model/AuthViewModel.dart';
+import 'package:cryptope/view_model/RootViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lecle_flutter_carousel_pro/lecle_flutter_carousel_pro.dart';
+import 'package:loading_overlay_pro/loading_overlay_pro.dart';
 import 'LeftDrawer.dart';
 
 class GlobalMainWidget {
 
   static Widget globalMainWidget(Widget myWidget,
       {BottomNavigationBar? bottomNavigationBar}) {
+    final rootViewModel = Get.put(RootViewModel());
     return SafeArea(
-      child: Scaffold(
-          drawer: LeftDrawer(),
-          body: myWidget,
-          bottomNavigationBar: bottomNavigationBar),
+      child: Obx(()=>LoadingOverlayPro(
+        isLoading: rootViewModel.isLoading.value,
+        child: Scaffold(
+            drawer: LeftDrawer(),
+            body: myWidget,
+            bottomNavigationBar: bottomNavigationBar),
+      )),
     );
   }
 
@@ -28,25 +36,28 @@ class GlobalMainWidget {
   }
 
   static Widget pageHeader(String title1, String title2){
-    return Row(
-      children: <Widget>[
-        Expanded(
-            child: Text(title1,
-                style: TextStyle(
-                    fontSize: AllDimension.eighteen,
-                    fontWeight: FontWeight.bold,
-                    color: AllColors.blackColor))),
-        InkWell(
-          onTap: (){},
-          child: Text(
-            title2,
-            style: TextStyle(
-                fontSize: AllDimension.fourteen,
-                color: AllColors.officialGreyColor),
+    return Container(
+      margin: EdgeInsets.only(left: AllDimension.eight,right: AllDimension.eight),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+              child: Text(title1,
+                  style: TextStyle(
+                      fontSize: AllDimension.eighteen,
+                      fontWeight: FontWeight.bold,
+                      color: AllColors.blackColor))),
+          InkWell(
+            onTap: (){},
+            child: Text(
+              title2,
+              style: TextStyle(
+                  fontSize: AllDimension.fourteen,
+                  color: AllColors.officialGreyColor),
+            ),
           ),
-        ),
 
-      ],
+        ],
+      ),
     );
   }
 

@@ -1,8 +1,10 @@
-import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
-import 'package:cryptope/Cryptope/presentation/widgets/HomePageWidget.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
+import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
+import 'package:cryptope/view/widgets/HomePageWidget.dart';
+import 'package:cryptope/view_model/EventViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,6 +14,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  final eventViewModel = Get.put(EventViewModel());
+
   @override
   Widget build(BuildContext context) {
     return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
@@ -25,7 +30,7 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.all(AllDimension.twenty),
+              padding: EdgeInsets.all(AllDimension.eight),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(AllDimension.fourty),
@@ -36,21 +41,25 @@ class _HomePageState extends State<HomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
 
+                    SizedBox(height: AllDimension.sixteen),
+
                     GlobalMainWidget.pageHeader(AllTitles.upcomingEvents,AllTitles.viewAll),
 
-                    SizedBox(height: AllDimension.sixteen),
+                    SizedBox(height: AllDimension.twelve),
 
                     SizedBox(
                       height: MediaQuery.of(context).size.height,
-                      child: ListView.builder(
-                        itemCount: 6,
+                      child: Obx(()=>eventViewModel.eventList.isEmpty?
+                      Center(child: CircularProgressIndicator()):
+                      ListView.builder(
+                          itemCount: eventViewModel.eventList.length,
                           itemBuilder: (context,index){
-                            return HomePageWidget.MyCardListItem(context);
+                            return HomePageWidget.MyCardListItem(context,eventViewModel.eventList[index]);
                           }
-                      ),
+                      )),
                     ),
 
-                    SizedBox(height: AllDimension.eightyFour),
+                    SizedBox(height: AllDimension.oneHundred),
 
                   ],
                 ),

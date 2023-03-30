@@ -1,6 +1,7 @@
 class AllTitles {
   static String appTitle = "Cryptope";
   static String alreadyHaveAnAccount = "Already have an account?";
+  static String somethingWentWrong = "Something went wrong, Please try again!";
   static String login = "Login";
   static String welcomeBack = "Welcome Back!!";
   static String loginToContinue = "Please login to your Account to Continue";
@@ -10,7 +11,7 @@ class AllTitles {
   static String welcomeCryptope = "Welcome to CRYPTOPE";
   static String createYourAccount = "Let’s Create Your Account";
   static String upcomingEvents = "Upcoming Events";
-  static String gits = "Gifts";
+  static String gifs = "Gifs";
   static String news = "News";
   static String coins = "Coins";
   static String viewAll = "View All";

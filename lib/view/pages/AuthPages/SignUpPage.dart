@@ -1,10 +1,10 @@
-import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
-import 'package:cryptope/Cryptope/presentation/widgets/LoginSignUpWidgets.dart';
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
 import 'package:cryptope/CustomClasses/CutomLists.dart';
 import 'package:cryptope/CustomClasses/routes/PageConstants.dart';
+import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
+import 'package:cryptope/view/widgets/LoginSignUpWidgets.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {

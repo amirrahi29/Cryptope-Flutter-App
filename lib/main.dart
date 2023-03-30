@@ -1,9 +1,11 @@
-import 'package:cryptope/Cryptope/presentation/pages/IntroOnBoardingPage.dart';
 import 'package:cryptope/CustomClasses/routes/OnPageGenerateRoute.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'CustomClasses/AllTitles.dart';
+import 'view/pages/IntroOnBoardingPage.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: AllTitles.appTitle,
       theme: ThemeData(
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         "/": (context) {
-          return IntroOnBoardingPage();
+          return const IntroOnBoardingPage();
         }
       },
     );

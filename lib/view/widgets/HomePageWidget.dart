@@ -2,14 +2,16 @@ import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/routes/PageConstants.dart';
+import 'package:cryptope/model/EventModel.dart';
 import 'package:flutter/material.dart';
 
 class HomePageWidget{
 
-  static Widget MyCardListItem(BuildContext context){
+  static Widget MyCardListItem(BuildContext context,EventList eventList){
     return InkWell(
       onTap: (){
-        Navigator.pushNamed(context, PageConstants.eventDetailPage);
+        Navigator.pushNamed(context, PageConstants.eventDetailPage,
+        arguments: eventList);
       },
       child: Card(
         elevation: AllDimension.eight,
@@ -23,12 +25,13 @@ class HomePageWidget{
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
 
+              if(eventList.image.isNotEmpty)
               Container(
                 height: AllDimension.oneThirty,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(AllImages.coinImage),
+                        image: NetworkImage(eventList.image),
                         fit: BoxFit.cover
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(AllDimension.sixteen))
@@ -43,24 +46,24 @@ class HomePageWidget{
 
                       Container(
                           padding: EdgeInsets.all(AllDimension.eight),
-                          margin: EdgeInsets.all(AllDimension.eight),
+                          margin: EdgeInsets.all(AllDimension.four),
                           decoration:BoxDecoration(
                               color: Colors.black.withOpacity(0.5),
                               borderRadius: BorderRadius.circular(AllDimension.sixteen)
                           ),
-                          child: Text("Earn coin",
+                          child: Text(eventList.eventStatus==""?"":eventList.eventStatus,
                             style: TextStyle(color: AllColors.whiteColor,
                                 fontSize: AllDimension.ten),)
                       ),
 
                       Container(
                           padding: EdgeInsets.all(AllDimension.eight),
-                          margin: EdgeInsets.all(AllDimension.eight),
+                          margin: EdgeInsets.all(AllDimension.four),
                           decoration:BoxDecoration(
                               color: Colors.black.withOpacity(0.5),
                               borderRadius: BorderRadius.circular(AllDimension.sixteen)
                           ),
-                          child: Text("Friday 27th Jan 2023",
+                          child: Text(eventList.eventDate==""?"":eventList.eventDate.toString(),
                             style: TextStyle(color: AllColors.whiteColor,
                                 fontSize: AllDimension.ten),)
                       )
@@ -72,16 +75,16 @@ class HomePageWidget{
 
               SizedBox(height: AllDimension.eight),
 
-              Text("Grow the coins",
+              Text(eventList.eventName==""?"":eventList.eventName,
                   style: TextStyle(fontSize: AllDimension.sixteen,
                       color: AllColors.blackColor,
                       fontWeight: FontWeight.w700)),
 
-              Text("New world of coins",
+              Text(eventList.eventType==""?"":eventList.eventType,
                   style: TextStyle(fontSize: AllDimension.fourteen,
                       color: AllColors.mainThemeColor)),
 
-              Text("Lorem ipsum dolor sit ametcon sectetur. Lectus curabitur.",
+              Text(eventList.eventDescription==""?"":eventList.eventDescription,
                   style: TextStyle(fontSize: AllDimension.fourteen,
                       color: AllColors.officialGreyColor))
 

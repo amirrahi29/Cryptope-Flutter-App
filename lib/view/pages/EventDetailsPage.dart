@@ -1,13 +1,17 @@
-import 'package:cryptope/Cryptope/presentation/widgets/EventDetailsWidget.dart';
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
+import 'package:cryptope/model/EventModel.dart';
+import 'package:cryptope/view/widgets/EventDetailsWidget.dart';
 import 'package:flutter/material.dart';
 import '../widgets/GlobalMainWidget.dart';
 
 class EventDetailsPage extends StatefulWidget {
-  const EventDetailsPage({Key? key}) : super(key: key);
+
+  final EventList eventList;
+
+  const EventDetailsPage({Key? key,required this.eventList}) : super(key: key);
 
   @override
   State<EventDetailsPage> createState() => _EventDetailsPageState();
@@ -33,7 +37,7 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
                        height: AllDimension.threeFifty,
                        decoration: BoxDecoration(
                            image: DecorationImage(
-                               image: AssetImage(AllImages.details),
+                               image: NetworkImage(widget.eventList.image),
                                fit: BoxFit.fill
                            ),
                            borderRadius: BorderRadius.only(
@@ -60,10 +64,10 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
                              crossAxisAlignment: CrossAxisAlignment.start,
                              children: <Widget>[
 
-                               Text("Share Bangla Concert",
+                               Text(widget.eventList.eventName,
                                  style: TextStyle(fontSize: AllDimension.sixteen,
                                      color: AllColors.blackColor,fontWeight: FontWeight.bold),),
-                               Text("Influencera music",
+                               Text(widget.eventList.eventType,
                                    style: TextStyle(fontSize: AllDimension.fourteen,
                                        color: AllColors.mainThemeColor)),
 
@@ -130,7 +134,7 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
 
                            Image.asset(AllImages.calender,height: AllDimension.twenty,width: AllDimension.twenty),
                            SizedBox(width: AllDimension.eight),
-                           Text("Friday, 27 Feb 2023",
+                           Text(widget.eventList.eventDate.toString(),
                              style: TextStyle(color: AllColors.blackColor,fontSize: AllDimension.fourteen,
                                  fontWeight: FontWeight.w500),)
 
@@ -147,14 +151,7 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
 
                        SizedBox(height: AllDimension.eight),
 
-                       Text("Lorem ipsum dolor sit amet consectetur. Vulputate quisque purus "
-                           "vitae at diam viverra. Lobortis nunc consequat magna est montes. "
-                           "Sem vulputate pharetra suscipit malesuada. Vitae tellus aliquet "
-                           "aliquet eget iaculis porttitor. Tellus id risus velit leo auctor "
-                           "penatibus id egestas. Vitae ut pharetra in viverra vitae at sed eu. "
-                           "Tortor nulla duis fermentum fames diam tellus orci.egestas. Vitae ut "
-                           "pharetra in viverra vitae at sed eu. Tortor nulla duis fermentum fames "
-                           "diam tellus orci.",
+                       Text(widget.eventList.eventDescription,
                            style: TextStyle(color: AllColors.officialGreyColor,fontSize: AllDimension.fourteen))
 
                      ],

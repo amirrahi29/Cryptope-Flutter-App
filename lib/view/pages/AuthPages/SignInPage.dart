@@ -1,11 +1,14 @@
-import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
-import 'package:cryptope/Cryptope/presentation/widgets/LoginSignUpWidgets.dart';
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
 import 'package:cryptope/CustomClasses/CutomLists.dart';
 import 'package:cryptope/CustomClasses/routes/PageConstants.dart';
+import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
+import 'package:cryptope/view/widgets/LoginSignUpWidgets.dart';
+import 'package:cryptope/view_model/AuthViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:loading_overlay_pro/loading_overlay_pro.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -15,9 +18,13 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+
+  //final authViewModel = Get.put(AuthViewModel());
+
   @override
   Widget build(BuildContext context) {
-    return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
+    return GlobalMainWidget.globalMainWidget(
+        SingleChildScrollView(
       child: Stack(
         clipBehavior: Clip.none,
         children: <Widget>[
@@ -52,6 +59,7 @@ class _SignInPageState extends State<SignInPage> {
                           color: AllColors.officialGreyColor,
                           fontSize: AllDimension.sixteen),
                     ),
+
                     SizedBox(
                       height: AllDimension.sixteen,
                     ),
@@ -62,7 +70,10 @@ class _SignInPageState extends State<SignInPage> {
                         for (int i = 0; i < CutomLists.socialLists.length; i++)
                           InkWell(
                             onTap: () {
-                              Navigator.pushNamed(context, PageConstants.dashboardPage);
+                              // Navigator.pushNamed(context, PageConstants.dashboardPage);
+                              if(i == 1){
+                               // authViewModel.signInWithGoogle(context);
+                              }
                             },
                             child: Container(
                               height: AllDimension.fourtyFive,
@@ -88,6 +99,7 @@ class _SignInPageState extends State<SignInPage> {
 
         ],
       ),
-    ));
+    )
+    );
   }
 }

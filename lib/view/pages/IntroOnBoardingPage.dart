@@ -1,9 +1,9 @@
-import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
 import 'package:cryptope/CustomClasses/routes/PageConstants.dart';
+import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
 import 'package:flutter/material.dart';
 
 class IntroOnBoardingPage extends StatefulWidget {
@@ -21,7 +21,7 @@ class _IntroOnBoardingPageState extends State<IntroOnBoardingPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            height: MediaQuery.of(context).size.height / 1.08,
+            height: MediaQuery.of(context).size.height / 1.09,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 image: DecorationImage(
@@ -29,7 +29,9 @@ class _IntroOnBoardingPageState extends State<IntroOnBoardingPage> {
                     fit: BoxFit.fill)),
             child: GlobalMainWidget.MyIntroWidget(),
           ),
+
           SizedBox(height: AllDimension.sixteen),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -50,7 +52,8 @@ class _IntroOnBoardingPageState extends State<IntroOnBoardingPage> {
                 ),
               ),
             ],
-          )
+          ),
+          SizedBox(height: AllDimension.sixteen),
         ],
       ),
     ));

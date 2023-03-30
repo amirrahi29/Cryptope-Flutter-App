@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "576156632514",
+    "project_id": "cryptope-e3402",
+    "storage_bucket": "cryptope-e3402.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576156632514:android:d15d9d2ce6e670b29f025b",
+        "android_client_info": {
+          "package_name": "com.example.cryptope"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576156632514-vdrc10f9b6b25fgtbp3kg0civ0qho04n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cryptope",
+            "certificate_hash": "e59b4916e6897afd58bed281e3d212e497eeba14"
+          }
+        },
+        {
+          "client_id": "576156632514-f5e7qv1avkum05h2cn3ulbu0addf464g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOfEbaJzb5qse4UifR4KosxlrNzWF9rtY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576156632514-f5e7qv1avkum05h2cn3ulbu0addf464g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

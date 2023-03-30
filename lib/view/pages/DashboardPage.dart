@@ -1,6 +1,6 @@
-import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/BottomTabItems.dart';
+import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatefulWidget {

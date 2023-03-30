@@ -1,7 +1,7 @@
-import 'package:cryptope/Cryptope/presentation/pages/BottomPages/ContentPage.dart';
-import 'package:cryptope/Cryptope/presentation/pages/BottomPages/HomePage.dart';
-import 'package:cryptope/Cryptope/presentation/pages/BottomPages/ProfilePage.dart';
-import 'package:cryptope/Cryptope/presentation/pages/BottomPages/TokenPage.dart';
+import 'package:cryptope/view/pages/BottomPages/ContentPage.dart';
+import 'package:cryptope/view/pages/BottomPages/HomePage.dart';
+import 'package:cryptope/view/pages/BottomPages/ProfilePage.dart';
+import 'package:cryptope/view/pages/BottomPages/TokenPage.dart';
 import 'package:flutter/material.dart';
 import 'AllColors.dart';
 import 'AllDimension.dart';

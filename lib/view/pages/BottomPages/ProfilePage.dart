@@ -1,9 +1,13 @@
-import 'package:cryptope/Cryptope/presentation/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
+import 'package:cryptope/model/UserProfileModel.dart';
+import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
+import 'package:cryptope/view/widgets/ProfileWidgets.dart';
+import 'package:cryptope/view_model/UserViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -13,16 +17,21 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+
+  final responseViewModel = Get.put(UserViewModel());
+
   @override
   Widget build(BuildContext context) {
     return GlobalMainWidget.globalMainWidget(
-        SingleChildScrollView(
+        Obx(()=>
+        responseViewModel.profileViewModel.value.responseData == null?
+            Center(child: CircularProgressIndicator()):
+            SingleChildScrollView(
           child: Stack(
             clipBehavior: Clip.none,
             children: <Widget>[
 
               GlobalMainWidget.backgroundWidget(context),
-
               GlobalMainWidget.TabTitles("Profile"),
 
               Positioned(
@@ -30,7 +39,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Container(
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.all(AllDimension.twenty),
+                  padding: EdgeInsets.all(AllDimension.eight),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(AllDimension.fourty),
@@ -41,21 +50,33 @@ class _ProfilePageState extends State<ProfilePage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         SizedBox(height: AllDimension.sixteen),
+
+                        responseViewModel.profileViewModel.value.responseData!.image==""?
                         Container(
                           height: AllDimension.oneTwenty,
                           width: AllDimension.oneTwenty,
                           decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(AllImages.user)
-                            )
+                              image: DecorationImage(
+                                  image: AssetImage(AllImages.user)
+                              )
+                          ),
+                        ):
+                        Container(
+                          height: AllDimension.oneTwenty,
+                          width: AllDimension.oneTwenty,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage("${responseViewModel.profileViewModel.value.responseData!.image}")
+                              )
                           ),
                         ),
 
                         SizedBox(height: AllDimension.eight),
 
-                        Text("Esther Howard",
-                        style: TextStyle(fontSize: AllDimension.twentyTwo,
-                        fontWeight: FontWeight.bold)),
+                        Text("${responseViewModel.profileViewModel.value.responseData!.name==""?"":
+                        responseViewModel.profileViewModel.value.responseData!.name}",
+                            style: TextStyle(fontSize: AllDimension.twentyTwo,
+                                fontWeight: FontWeight.bold)),
 
                         SizedBox(height: AllDimension.twentyFour),
 
@@ -77,12 +98,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                     children: <Widget>[
 
                                       Text("Plan",
-                                      style: TextStyle(fontSize: AllDimension.fourteen,
-                                      color: AllColors.officialGreyColor),),
+                                        style: TextStyle(fontSize: AllDimension.fourteen,
+                                            color: AllColors.officialGreyColor),),
                                       Text("Free Plan",
                                         style: TextStyle(fontSize: AllDimension.fourteen,
                                             color: AllColors.blackColor,
-                                        fontWeight: FontWeight.w600),),
+                                            fontWeight: FontWeight.w600),),
 
                                     ],
                                   ),
@@ -130,7 +151,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Text(AllTitles.walletAddress,
                                   style: TextStyle(fontSize: AllDimension.fourteen,
                                       color: AllColors.officialGreyColor),),
-                                Text("smklcnewfh2834u5435323r23",
+                                Text("${responseViewModel.profileViewModel.value.responseData!.walletAddress==""?"":
+                                responseViewModel.profileViewModel.value.responseData!.walletAddress}",
                                   style: TextStyle(fontSize: AllDimension.fourteen,
                                       color: AllColors.blackColor,
                                       fontWeight: FontWeight.w600),),
@@ -158,31 +180,35 @@ class _ProfilePageState extends State<ProfilePage> {
                                   style: TextStyle(fontSize: AllDimension.fourteen,
                                       color: AllColors.officialGreyColor),),
 
-                               Row(
-                                 children: <Widget>[
+                                Row(
+                                  children: <Widget>[
 
-                                   InkWell(
-                                     onTap: () {},
-                                     child: Container(
-                                       height: AllDimension.thirtyTwo,
-                                       width: AllDimension.thirtyTwo,
-                                       margin: EdgeInsets.all(AllDimension.eight),
-                                       child: Image.asset(AllImages.twitter),
-                                     ),
-                                   ),
+                                    responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount == "twitter"?
+                                    InkWell(
+                                      onTap: () {},
+                                      child: ProfileWidgets.SocialWidgets(AllImages.twitter),
+                                    ):SizedBox.shrink(),
 
-                                   InkWell(
-                                     onTap: () {},
-                                     child: Container(
-                                       height: AllDimension.thirtyTwo,
-                                       width: AllDimension.thirtyTwo,
-                                       margin: EdgeInsets.all(AllDimension.eight),
-                                       child: Image.asset(AllImages.facebook),
-                                     ),
-                                   )
+                                    responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount == "google"?
+                                    InkWell(
+                                      onTap: () {},
+                                      child: ProfileWidgets.SocialWidgets(AllImages.google),
+                                    ):SizedBox.shrink(),
 
-                                 ],
-                               )
+                                    responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount == "facebook"?
+                                    InkWell(
+                                      onTap: () {},
+                                      child: ProfileWidgets.SocialWidgets(AllImages.facebook),
+                                    ):SizedBox.shrink(),
+
+                                    responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount == "apple"?
+                                    InkWell(
+                                      onTap: () {},
+                                      child: ProfileWidgets.SocialWidgets(AllImages.apple),
+                                    ):SizedBox.shrink(),
+
+                                  ],
+                                )
 
                               ],
                             ),
@@ -197,7 +223,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
             ],
           ),
-        ));
+        ))
+    );
   }
 }
 
