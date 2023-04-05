@@ -1,4 +1,5 @@
 import 'package:cryptope/model/EventModel.dart';
+import 'package:cryptope/model/ProjectModel.dart';
 import 'package:cryptope/view/pages/AuthPages/SignInPage.dart';
 import 'package:cryptope/view/pages/AuthPages/SignUpPage.dart';
 import 'package:cryptope/view/pages/DashboardPage.dart';
@@ -41,7 +42,12 @@ class OnPageGenerateRoute {
         }
       case PageConstants.tokenDetailPage:
         {
-          return materialPageRoute(widget: TokenDetailsPage());
+          if(args is ProjectList)
+          {
+            return materialPageRoute(widget: TokenDetailsPage(projectList: args));
+          }else{
+            return materialPageRoute(widget: ErrorPage());
+          }
         }
       default:
         {

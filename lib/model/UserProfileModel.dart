@@ -1,3 +1,4 @@
+
 class UserProfileModel {
   UserProfileModel({
     this.status,
@@ -35,14 +36,14 @@ class ResponseData {
   String? email;
   String? image;
   String? walletAddress;
-  String? connectedSocialMediaAccount;
+  List<ConnectedSocialMediaAccount>? connectedSocialMediaAccount;
 
   factory ResponseData.fromJson(Map<String, dynamic> json) => ResponseData(
     name: json["name"],
     email: json["email"],
     image: json["image"],
     walletAddress: json["wallet_address"],
-    connectedSocialMediaAccount: json["connected_social_media_account"],
+    connectedSocialMediaAccount: List<ConnectedSocialMediaAccount>.from(json["connected_social_media_account"].map((x) => ConnectedSocialMediaAccount.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -50,6 +51,26 @@ class ResponseData {
     "email": email,
     "image": image,
     "wallet_address": walletAddress,
-    "connected_social_media_account": connectedSocialMediaAccount,
+    "connected_social_media_account": List<dynamic>.from(connectedSocialMediaAccount!.map((x) => x.toJson())),
+  };
+}
+
+class ConnectedSocialMediaAccount {
+  ConnectedSocialMediaAccount({
+    this.loggedInBy,
+    this.createdAt,
+  });
+
+  String? loggedInBy;
+  DateTime? createdAt;
+
+  factory ConnectedSocialMediaAccount.fromJson(Map<String, dynamic> json) => ConnectedSocialMediaAccount(
+    loggedInBy: json["logged_in_by"],
+    createdAt: DateTime.parse(json["created_at"]),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "logged_in_by": loggedInBy,
+    "created_at": createdAt!.toIso8601String(),
   };
 }

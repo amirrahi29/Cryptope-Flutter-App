@@ -11,30 +11,7 @@ class UserRepository{
         Uri.parse("${Config.baseUrl}${Config.signInSignUp}"),
     body: userModel.toMap());
     var convertedJson = jsonDecode(response.body);
-    try {
-      if(response.statusCode == Config.twoHundredStatusCode){
-            return UserResponseModel(
-              status: convertedJson['status'],
-              is_new_user: convertedJson['is_new_user'],
-              responseCode: convertedJson['responseCode'],
-              responseMessage: convertedJson['responseMessage'],
-              user_id: convertedJson['user_id'],
-            );
-          }else{
-            return UserResponseModel(
-              status: convertedJson['status'],
-              is_new_user: convertedJson['is_new_user'],
-              responseCode: convertedJson['responseCode'],
-            );
-          }
-    } catch (e) {
-      return UserResponseModel(
-        status: "false",
-        is_new_user: "false",
-        responseCode: Config.fourHundredStatusCode,
-        responseMessage: e.toString(),
-      );
-    }
+    return convertedJson;
   }
 
   static Future<UserProfileModel> getUserProfile()async{
@@ -44,7 +21,7 @@ class UserRepository{
       var response = await Config.client.post(
               Uri.parse("${Config.baseUrl}${Config.userProfile}"),
               body: {
-                "user_id": userId
+                "user_id": userId.toString()
               });
       var convertedJson = jsonDecode(response.body);
       // print('convertedJson'+response.body);

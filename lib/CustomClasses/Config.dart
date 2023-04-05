@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Config {
 
@@ -12,6 +13,7 @@ class Config {
   static String getGif = "/getGif";
   static String getNews = "/getNewsGraphics";
   static String getCoins = "/getCoinLogos";
+  static String getProjects = "/getProjects";
 
   //http client
   static var client = http.Client();
@@ -21,9 +23,17 @@ class Config {
   static int threeHundredStatusCode = 300;
   static int fourHundredStatusCode = 400;
 
-  //saved user
-  static Future<String> getUserId()async{
-    var userId = await "3";
+  //get user
+  static Future<int?> getUserId()async{
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    int? userId = await pref.getInt('userId');
+    print(userId);
     return userId;
+  }
+
+  //save user
+  static void saveUserId(int userId)async{
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setInt('userId', userId);
   }
 }

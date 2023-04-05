@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           GlobalMainWidget.backgroundWidget(context),
           GlobalMainWidget.TabTitles("Events"),
+
           Positioned(
             top: AllDimension.eightyFour,
             child: Container(
@@ -48,9 +49,9 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(height: AllDimension.twelve),
 
                     SizedBox(
-                      height: MediaQuery.of(context).size.height,
+                      height: MediaQuery.of(context).size.height/1.02,
                       child: Obx(()=>eventViewModel.eventList.isEmpty?
-                      Center(child: CircularProgressIndicator()):
+                      const Center(child: CircularProgressIndicator()):
                       ListView.builder(
                           itemCount: eventViewModel.eventList.length,
                           itemBuilder: (context,index){

@@ -2,18 +2,30 @@ import 'package:cryptope/CustomClasses/AllColors.dart';
 import 'package:cryptope/CustomClasses/AllDimension.dart';
 import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
+import 'package:cryptope/model/ProjectModel.dart';
 import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:lecle_flutter_carousel_pro/lecle_flutter_carousel_pro.dart';
 
 class TokenDetailsPage extends StatefulWidget {
-  const TokenDetailsPage({Key? key}) : super(key: key);
+
+  final ProjectList projectList;
+
+  const TokenDetailsPage({Key? key,required this.projectList}) : super(key: key);
 
   @override
   State<TokenDetailsPage> createState() => _TokenDetailsState();
 }
 
 class _TokenDetailsState extends State<TokenDetailsPage> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print(widget.projectList.projectName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return GlobalMainWidget.globalMainWidget(Stack(
@@ -25,6 +37,7 @@ class _TokenDetailsState extends State<TokenDetailsPage> {
               Stack(
                 clipBehavior: Clip.none,
                 children: <Widget>[
+
                   // Container(
                   //   height: AllDimension.threeFifty,
                   //   decoration: BoxDecoration(
@@ -87,7 +100,8 @@ class _TokenDetailsState extends State<TokenDetailsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("Helix pro",
+                    Text(widget.projectList.projectName==""?""
+                        :widget.projectList.projectName!,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: AllDimension.twentyEight)),
@@ -130,15 +144,8 @@ class _TokenDetailsState extends State<TokenDetailsPage> {
                             fontSize: AllDimension.sixteen,
                             color: AllColors.blackColor)),
                     SizedBox(height: AllDimension.eight),
-                    Text(
-                        "Lorem ipsum dolor sit amet consectetur. Vulputate quisque purus "
-                        "vitae at diam viverra. Lobortis nunc consequat magna est montes. "
-                        "Sem vulputate pharetra suscipit malesuada. Vitae tellus aliquet "
-                        "aliquet eget iaculis porttitor. Tellus id risus velit leo auctor "
-                        "penatibus id egestas. Vitae ut pharetra in viverra vitae at sed eu. "
-                        "Tortor nulla duis fermentum fames diam tellus orci.egestas. Vitae ut "
-                        "pharetra in viverra vitae at sed eu. Tortor nulla duis fermentum fames "
-                        "diam tellus orci.",
+                    Text(widget.projectList.projectDetails==""?""
+                        :widget.projectList.projectDetails!,
                         style: TextStyle(
                             color: AllColors.officialGreyColor,
                             fontSize: AllDimension.fourteen))

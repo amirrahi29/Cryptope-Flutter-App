@@ -19,7 +19,7 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
 
-  //final authViewModel = Get.put(AuthViewModel());
+  final authViewModel = Get.put(AuthViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -70,9 +70,14 @@ class _SignInPageState extends State<SignInPage> {
                         for (int i = 0; i < CutomLists.socialLists.length; i++)
                           InkWell(
                             onTap: () {
-                              // Navigator.pushNamed(context, PageConstants.dashboardPage);
-                              if(i == 1){
-                               // authViewModel.signInWithGoogle(context);
+                              if(i == 0){
+                                authViewModel.signInWithTwitter(context);
+                              } else if(i == 1){
+                               authViewModel.signInWithGoogle(context);
+                              }else if(i == 2){
+                               authViewModel.signInWithFacebook(context);
+                              }else if(i == 3){
+                               authViewModel.signInWithApple(context);
                               }
                             },
                             child: Container(

@@ -12,6 +12,7 @@ class UserViewModel extends GetxController{
     super.onInit();
     getUserProfile();
   }
+
   Future<void> getUserProfile()async{
     var response = await UserRepository.getUserProfile();
     if(response.status == 'true'){

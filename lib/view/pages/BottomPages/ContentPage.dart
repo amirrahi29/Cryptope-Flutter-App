@@ -81,7 +81,6 @@ class _ContentPageState extends State<ContentPage> {
                           ),
                         ),
 
-
                         //coins
                         SizedBox(height: AllDimension.twelve),
                         GlobalMainWidget.pageHeader(AllTitles.coins,AllTitles.viewAll),
@@ -100,7 +99,7 @@ class _ContentPageState extends State<ContentPage> {
                           ),
                         ),
 
-                        SizedBox(height: AllDimension.oneFifty),
+                        SizedBox(height: AllDimension.oneSixty),
 
                       ],
                     ),

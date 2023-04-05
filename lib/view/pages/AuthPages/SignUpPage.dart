@@ -5,7 +5,9 @@ import 'package:cryptope/CustomClasses/CutomLists.dart';
 import 'package:cryptope/CustomClasses/routes/PageConstants.dart';
 import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
 import 'package:cryptope/view/widgets/LoginSignUpWidgets.dart';
+import 'package:cryptope/view_model/AuthViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -15,6 +17,9 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+
+  final authViewModel = Get.put(AuthViewModel());
+
   @override
   Widget build(BuildContext context) {
     return GlobalMainWidget.globalMainWidget(SingleChildScrollView(
@@ -62,7 +67,15 @@ class _SignUpPageState extends State<SignUpPage> {
                         for (int i = 0; i < CutomLists.socialLists.length; i++)
                           InkWell(
                             onTap: () {
-                              Navigator.pushNamed(context, PageConstants.dashboardPage);
+                              if(i == 0){
+                                authViewModel.signInWithTwitter(context);
+                              } else if(i == 1){
+                                authViewModel.signInWithGoogle(context);
+                              }else if(i == 2){
+                                authViewModel.signInWithFacebook(context);
+                              }else if(i == 3){
+                                authViewModel.signInWithApple(context);
+                              }
                             },
                             child: Container(
                               height: AllDimension.fourtyFive,

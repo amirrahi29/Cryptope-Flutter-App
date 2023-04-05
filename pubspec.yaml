@@ -45,6 +45,10 @@ dependencies:
   firebase_core:
   loading_overlay_pro:
   gallery_saver: ^2.3.2
+  flutter_facebook_auth:
+  twitter_login:
+  sign_in_with_apple:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:

@@ -4,7 +4,9 @@ import 'package:cryptope/CustomClasses/AllImages.dart';
 import 'package:cryptope/CustomClasses/AllTitles.dart';
 import 'package:cryptope/CustomClasses/routes/PageConstants.dart';
 import 'package:cryptope/view/widgets/GlobalMainWidget.dart';
+import 'package:cryptope/view_model/IntroViewModel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class IntroOnBoardingPage extends StatefulWidget {
   const IntroOnBoardingPage({Key? key}) : super(key: key);
@@ -14,6 +16,9 @@ class IntroOnBoardingPage extends StatefulWidget {
 }
 
 class _IntroOnBoardingPageState extends State<IntroOnBoardingPage> {
+  
+  final introViewModel = Get.put(IntroViewModel());
+  
   @override
   Widget build(BuildContext context) {
     return GlobalMainWidget.globalMainWidget(SingleChildScrollView(

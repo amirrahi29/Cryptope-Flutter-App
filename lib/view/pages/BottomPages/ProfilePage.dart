@@ -183,29 +183,39 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Row(
                                   children: <Widget>[
 
-                                    responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount == "twitter"?
-                                    InkWell(
-                                      onTap: () {},
-                                      child: ProfileWidgets.SocialWidgets(AllImages.twitter),
-                                    ):SizedBox.shrink(),
+                                    for(int i = 0; i<responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount!.length; i++)
 
-                                    responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount == "google"?
-                                    InkWell(
-                                      onTap: () {},
-                                      child: ProfileWidgets.SocialWidgets(AllImages.google),
-                                    ):SizedBox.shrink(),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: <Widget>[
 
-                                    responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount == "facebook"?
-                                    InkWell(
-                                      onTap: () {},
-                                      child: ProfileWidgets.SocialWidgets(AllImages.facebook),
-                                    ):SizedBox.shrink(),
+                                          responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount![i].loggedInBy == "google"?
+                                          InkWell(
+                                            onTap: () {},
+                                            child: ProfileWidgets.SocialWidgets(AllImages.google),
+                                          ):SizedBox.shrink(),
 
-                                    responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount == "apple"?
-                                    InkWell(
-                                      onTap: () {},
-                                      child: ProfileWidgets.SocialWidgets(AllImages.apple),
-                                    ):SizedBox.shrink(),
+                                          responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount![i].loggedInBy == "facebook"?
+                                          InkWell(
+                                            onTap: () {},
+                                            child: ProfileWidgets.SocialWidgets(AllImages.facebook),
+                                          ):SizedBox.shrink(),
+
+                                          responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount![i].loggedInBy == "twitter"?
+                                          InkWell(
+                                            onTap: () {},
+                                            child: ProfileWidgets.SocialWidgets(AllImages.twitter),
+                                          ):SizedBox.shrink(),
+
+                                          responseViewModel.profileViewModel.value.responseData!.connectedSocialMediaAccount![i].loggedInBy == "apple"?
+                                          InkWell(
+                                            onTap: () {},
+                                            child: ProfileWidgets.SocialWidgets(AllImages.apple),
+                                          ):SizedBox.shrink()
+
+
+                                        ],
+                                      )
 
                                   ],
                                 )
